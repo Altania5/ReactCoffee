@@ -6,10 +6,11 @@ let User = require('../models/user.model');
 // --- REGISTRATION ---
 router.route('/register').post(async (req, res) => {
   try {
-    const { username, password } = req.body;
+    // 1. Destructure the new fields from the request body
+    const { firstName, lastName, birthday, username, password } = req.body;
 
-    // Validation
-    if (!username || !password) {
+    // 2. Update validation to check for the new fields
+    if (!firstName || !lastName || !birthday || !username || !password) {
       return res.status(400).json({ msg: 'Please enter all fields.' });
     }
     if (password.length < 6) {
@@ -21,11 +22,14 @@ router.route('/register').post(async (req, res) => {
       return res.status(400).json({ msg: 'An account with this username already exists.' });
     }
 
-    // Hash the password
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
 
+    // 3. Create the new user with all fields
     const newUser = new User({
+      firstName,
+      lastName,
+      birthday,
       username,
       password: passwordHash,
     });
@@ -61,7 +65,7 @@ router.route('/login').post(async (req, res) => {
 
     // Sign a token
     const token = jwt.sign(
-      { id: user._id, role: user.role }, // Add role here
+      { id: user._id, role: user.role, firstName: user.firstName }, // Add firstName to token
       process.env.JWT_SECRET || 'your_jwt_secret'
     );
     res.json({
@@ -69,7 +73,8 @@ router.route('/login').post(async (req, res) => {
       user: {
         id: user._id,
         username: user.username,
-        role: user.role // Also send role in the user object
+        role: user.role,
+        firstName: user.firstName // Add firstName to user object
       }
     });
 

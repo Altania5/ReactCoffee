@@ -61,6 +61,7 @@ hr {
   cursor: pointer;
   border-radius: var(--border-radius);
   transition: background-color 0.2s ease;
+  color: var(--text-color);
 }
 
 .nav-tabs button:hover {

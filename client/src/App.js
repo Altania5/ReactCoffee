@@ -3,6 +3,8 @@ import { jwtDecode } from 'jwt-decode';
 import AppLayout from './layout/AppLayout';
 import LoginPage from './pages/LoginPage';
 
+import './App.css';
+
 function App() {
   const [user, setUser] = useState(null);
 
