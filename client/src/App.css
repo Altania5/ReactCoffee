@@ -1,0 +1,156 @@
+/* --- Global Styles & Variables --- */
+:root {
+  --primary-color: #6F4E37; /* Coffee Brown */
+  --background-color: #F4F4F4;
+  --surface-color: #FFFFFF;
+  --text-color: #333333;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #E0E0E0;
+  margin: 40px 0;
+}
+
+/* --- Layout & Navbar --- */
+.app-header {
+  background-color: var(--surface-color);
+  padding: 10px 40px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-tabs button, .nav-user button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s ease;
+}
+
+.nav-tabs button:hover {
+  background-color: #EAEAEA;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* --- Forms & Buttons --- */
+.form-container {
+  background: var(--surface-color);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.form-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  box-sizing: border-box; /* Important for padding and width */
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #5a3f2b;
+}
+
+.form-container button {
+    width: 100%;
+}
+
+/* --- Component Specific Styles --- */
+.container {
+  background: var(--surface-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 20px;
+}
+
+.container h2, .container h3 {
+    margin-top: 0;
+}
+
+.product-list, .cart-list, .order-history-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product-item, .cart-item, .order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #EAEAEA;
+}
+.order-item {
+    display: block;
+    border: 1px solid #EAEAEA;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius);
+}
+.order-item ul {
+    list-style: circle;
+    padding-left: 20px;
+}
