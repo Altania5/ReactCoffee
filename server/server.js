@@ -19,10 +19,14 @@ connection.once('open', () => {
 const productsRouter = require('./routes/products');
 const usersRouter = require('./routes/users');
 const ordersRouter = require('./routes/orders');
+const beansRouter = require('./routes/beans');
+const coffeeLogsRouter = require('./routes/coffeeLogs');
 
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/orders', ordersRouter);
+app.use('/beans', beansRouter);
+app.use('/coffeelogs', coffeeLogsRouter);
 
 if (process.env.NODE_ENV === 'production') {
     const path = require('path');
